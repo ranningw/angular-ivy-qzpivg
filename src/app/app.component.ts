@@ -27,16 +27,20 @@ export class AppComponent {
 
     let pm = [];
     for (let i = 0; i < cells.length; i++) {
-      pm.push(cells[i].innerHTML);
+      pm.push(
+        cells[i].innerHTML
+          .replace(/&nbsp;/g, '')
+          .replace(/[<]br[^>]*[>]/gi, '')
+          .trim()
+      );
+    }
 
-      }
-
-    let aa : string;
+    let aa: string;
 
     aa = pm.toString();
     console.log(aa);
 
-   // console.log(cells.tostring());
+    // console.log(cells.tostring());
     // for (let i = 0; i < cells.length; i++) {
     //   cells[i].onclick = function () {
     //     var input = document.createElement('input');
