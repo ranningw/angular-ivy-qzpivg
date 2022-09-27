@@ -1,0 +1,35 @@
+<div class="window">
+  <div class="table-section">
+    <table border="1px" id="precodingtable">
+      <tr>
+        <th>#</th>
+        <th *ngFor="let ii of precodingnum; let index = index">
+          Layer {{ index }}
+        </th>
+      </tr>
+      <tr *ngFor="let j of precodingMatrix; let i = index">
+        <th>p{{ i }}</th>
+        <td *ngFor="let x of j" contenteditable="true">{{ x }}</td>
+      </tr>
+    </table>
+    <p></p>
+    <button (click)="onOK()" id="mybutton">submit</button>
+
+    <script>
+      function hh(){
+        var table = document.getElementById('precodingtable');
+        var cells = table.getElementsByTagName('td');
+
+        for (let i = 0; i < cells.length; i++) {
+          cells[i].onclick = function() {
+            console.log('clicked');
+          };
+        }
+
+      }
+       // console.log('click');
+    </script>
+  </div>
+  <hello name="{{ name }}"></hello>
+  <p>Start editing to see some magic happen :)</p>
+</div>
